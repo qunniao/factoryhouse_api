@@ -1,0 +1,16 @@
+.menu-text{
+    margin-left:5px;
+}
+.slight-right-shift{
+    margin-right:0.5em;
+}
+.disPlay-inline-block{
+    display: inline-block;
+}
+.slight-bottom-shift{
+    margin-bottom: 1.3em;
+}
+.row-fluid {
+    width: 100%;
+    *zoom: 1
+}

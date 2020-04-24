@@ -1,0 +1,172 @@
+<div class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="condList" class="fl_search clearfix"></div> <!-- 查询条件-->
+            <div id="resultList" class="clearfix tab-pane active"></div> <!--查询结果-->
+            <div id="pagenation" class="fl-page-wrap clearfix"></div> <!--分页-->
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="editModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">编辑商品</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="productList">
+                        <input type="text" id="plid" class="hide" />
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="productName">商品名称</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="productName" class="col-xs-10 col-sm-5 v_required v_name" data-toggle="popover" data-trigger='manual'/>
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="balance" >商品价格</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="balance" class="col-xs-10 col-sm-5 v_float v_required" data-toggle="popover" data-trigger='manual'/>
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right " for="type">商品类型</label>
+                            <div class="col-sm-3">
+                                <select class="form-control v_required v_name v_required" disabled="disabled" id="type" data-toggle="popover" data-trigger='manual'>
+                                    <option value="0">初始</option>
+                                    <option value="1" selected="selected">会员</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="space-4 hidden"></div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right " for="content">商品说明</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="content" class="col-xs-10 col-sm-5 v_name v_required" data-toggle="popover" data-trigger='manual' maxlength="30"/>
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right " for="remarks">会员商品开通年限(单位:年)</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="remarks" class="col-xs-10 col-sm-5 v_number v_required" data-toggle="popover" data-trigger='manual' maxlength="5"/>
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right " for="order">显示顺序</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="order" class="col-xs-10 col-sm-5 v_number v_required" data-toggle="popover" data-trigger='manual'/>
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="saveBtn" class="btn btn-primary">保存</button>
+                    <button type="button" id="cancelBtn" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!--    <div class="modal fade" id="saveModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">编辑商品</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="saveProductList">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="saveProductName">商品名称</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="saveProductName" class="col-xs-10 col-sm-5 v_required" data-toggle="popover" data-trigger='manual' maxlength="6"/>
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right " for="saveBalance">商品价格</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="saveBalance" class="col-xs-10 col-sm-5 v_name v_required" data-toggle="popover" data-trigger='manual' maxlength="30"/>
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right " for="saveType">商品类型</label>
+                            <div class="col-sm-3">
+                                <select class="form-control v_required" disabled="disabled" id="saveType" data-toggle="popover" data-trigger='manual'>
+                                    <option value="0">初始</option>
+                                    <option value="1" selected="selected" >会员</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="space-4 hidden"></div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right " for="saveContent">商品说明</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="saveContent" class="col-xs-10 col-sm-5 v_name v_required" data-toggle="popover" data-trigger='manual' maxlength="30"/>
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right " for="saveRemarks">会员商品开通年限(单位:年)</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="saveRemarks" class="col-xs-10 col-sm-5 v_name v_required" data-toggle="popover" data-trigger='manual' maxlength="30"/>
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right " for="saveOrder">显示顺序</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="saveOrder" class="col-xs-10 col-sm-5 v_name v_required" data-toggle="popover" data-trigger='manual' maxlength="30"/>
+                            </div>
+                        </div>
+                        <div class="space-4"></div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="saveBtn" class="btn btn-primary">保存</button>
+                    <button type="button" id="closeBtn" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+
+</div>
+
+<script type="text/javascript">
+    $.loadScript(['js/system/productList.js']);
+</script>

@@ -1,0 +1,204 @@
+<div class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="widget-box no-border transparent">
+                        <div class="widget-header">
+                            <h4>园区信息</h4>
+                        </div>
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <form class="form-horizontal" id="rentalSaleForm">
+                                    <div class="col-xs-12 col-sm-6">
+                                        <div class="control-group">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="productId">房源编号</label>
+                                                <div class="col-sm-9">
+                                                    <input id="productId" type="text" class="col-xs-10 col-sm-5" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="buildingStructure">建筑结构</label>
+                                                <div class="col-sm-9">
+                                                    <select class="col-xs-10 col-sm-5 v_required" id="buildingStructure" disabled="disabled" data-toggle="popover" data-trigger='manual'>
+                                                        <option value="0">不限</option>
+                                                        <option value="1">其他</option>
+                                                        <option value="2">砖木结构</option>
+                                                        <option value="3">砖混结构</option>
+                                                        <option value="4">钢架结构</option>
+                                                        <option value="5">钢混结构</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="region">区域信息</label>
+                                                <div class="col-sm-9">
+                                                    <input id="region" type="text" class="col-xs-10 col-sm-5" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="types">类别</label>
+                                                <div class="col-sm-9">
+                                                    <select class="col-xs-10 col-sm-5 v_required" id="types" disabled="disabled" data-toggle="popover" data-trigger='manual'>
+                                                        <option value="0">初始</option>
+                                                        <option value="1">厂房</option>
+                                                        <option value="2">仓库</option>
+                                                        <option value="3">土地</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="status">状态</label>
+                                                <div class="col-sm-9">
+                                                    <select class="col-xs-10 col-sm-5 v_required" id="status" disabled="disabled" data-toggle="popover" data-trigger='manual'>
+                                                        <option value="0">初始</option>
+                                                        <option value="1">出租</option>
+                                                        <option value="2">出售</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="latitude">经度</label>
+                                                <div class="col-sm-9">
+                                                    <input id="latitude" type="text" class="col-xs-10 col-sm-5" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="longitude">纬度</label>
+                                                <div class="col-sm-9">
+                                                    <input id="longitude" type="text" class="col-xs-10 col-sm-5" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="suitableBusiness">适合企业</label>
+                                                <div class="col-sm-9">
+                                                    <input id="suitableBusiness" type="text" class="col-xs-10 col-sm-5" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="contact">联系人</label>
+                                                <div class="col-sm-9">
+                                                    <input id="contact" type="text" class="col-xs-10 col-sm-5" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="contactPhone">联系人电话</label>
+                                                <div class="col-sm-9">
+                                                    <input id="contactPhone" type="text" class="col-xs-10 col-sm-5" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <div class="control-group">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="subleaseType">是否分租</label>
+                                                <div class="col-sm-9">
+                                                    <select class="col-xs-10 col-sm-5 v_required" id="subleaseType" disabled="disabled" data-toggle="popover" data-trigger='manual'>
+                                                        <option value="0">分租</option>
+                                                        <option value="1">不分租</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="address">地址</label>
+                                                <div class="col-sm-9">
+                                                    <input id="address" type="text" class="col-xs-10 col-sm-5" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="rent">租金/售价</label>
+                                                <div class="col-sm-9">
+                                                    <input id="rent" type="text" class="col-xs-10 col-sm-5" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="area">面积</label>
+                                                <div class="col-sm-9">
+                                                    <input id="area" type="text" class="col-xs-10 col-sm-5" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="leasePeriod">租期</label>
+                                                <div class="col-sm-9">
+                                                    <input id="leasePeriod" type="text" class="col-xs-10 col-sm-5" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="infrastructure">基础设施</label>
+                                                <div class="col-sm-9">
+                                                    <input id="infrastructure" type="text" class="col-xs-10 col-sm-5" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="peripheralPackage">周边配套</label>
+                                                <div class="col-sm-9">
+                                                    <input id="peripheralPackage" type="text" class="col-xs-10 col-sm-5" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="createTime">发布时间</label>
+                                                <div class="col-sm-9">
+                                                    <input id="createTime" type="text" class="col-xs-10 col-sm-5" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="title">标题</label>
+                                                <div class="col-sm-9">
+                                                    <input id="title" type="text" class="col-xs-10 col-sm-5" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                            <label class="col-sm-3 control-label no-padding-right" for="detailedDescription">详情描述</label>
+                                            <div class="col-sm-9">
+                                                <textarea id="detailedDescription" class="col-xs-10 col-sm-5"rows="3" data-toggle="popover"data-trigger="manual" maxlength="128"readonly="readonly"></textarea>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="row">
+                                    <div class="row-fluid wizard-actions" style="padding-right: 8em;">
+                                        <button id="btnBack" class="btn btn-info" type="button">
+                                            <i class="icon-mail-forward "></i>返回
+                                        </button>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12">
+                                        <div class="widget-box transparent">
+                                            <div class="widget-header">
+                                                <h4>标题图片</h4>
+                                            </div>
+                                            <div class="widget-body">
+                                                <div class="widget-main" id="rentalSalePicture" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12">
+                                        <div class="widget-box transparent">
+                                            <div class="widget-header">
+                                                <h4>详情图片</h4>
+                                            </div>
+                                            <div class="widget-body">
+                                                <div class="widget-main" id="rentalSalePictureDetails" style="margin-left:0.96em">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $.loadScript(['js/information/rentalSaleManagementDetail.js']);
+</script>

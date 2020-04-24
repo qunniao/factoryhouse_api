@@ -1,0 +1,63 @@
+spring:
+    jpa:
+        hibernate:
+        #数据库生成模式 none为不操作
+          ddl-auto: none
+          naming:
+            physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        show-sql: true
+#        open-in-view: true
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        druid:
+          #监控统计拦截的filters
+          filters: stat
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://47.110.34.1:3306/baoge?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=CTT
+          #           jdbc:mysql://47.93.212.57:3306/baoge?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=CTT
+#          url: jdbc:mysql://127.0.0.1:3306/baoge?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=CTT
+          username: root
+          password: zc24615.
+#          password: root
+          initial-size: 1
+          min-idle: 1
+          max-active: 20
+          max-wait: 60000
+          #间隔多久进行一次检测，检测需要关闭的空闲连接
+          time-between-eviction-runs-millis: 60000
+          #一个连接在池中最小生存的时间
+          min-evictable-idle-time-millis: 300000
+          validation-query: SELECT 'x'
+          test-while-idle: true
+          test-on-borrow: false
+          test-on-return: false
+          #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
+          pool-prepared-statements: false
+          max-pool-prepared-statement-per-connection-size: 20
+    mvc:
+        view:
+          prefix: /
+          suffiex: .html
+    servlet:
+      multipart:
+        enabled: true
+        max-file-size: 30MB
+        max-request-size: 30MB
+    jackson:
+      date-format: yyyy-MM-dd
+      time-zone: GMT+8
+    jmx:
+      enabled: false
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  returnPageInfo: check
+
+logging:
+  level:
+    com.baoge: debug
+server:
+  port: 80

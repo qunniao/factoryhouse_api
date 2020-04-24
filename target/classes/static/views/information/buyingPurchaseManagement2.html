@@ -1,0 +1,152 @@
+<div class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="condList" class="fl_search clearfix"></div> <!-- 查询条件-->
+            <div id="resultList" class="clearfix tab-pane active"></div> <!--查询结果-->
+            <div id="pagenation" class="fl-page-wrap clearfix"></div> <!--分页-->
+        </div>
+    </div>
+
+    <div class="modal fade" id="buyingPurchaseModal" tabindex="-1">
+        <div class="modal-dialog" style="width: 80em">
+            <div class="modal-content" style="">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">求租求购详情</h4>
+                </div>
+                <div class="modal-body" style="overflow:hidden">
+                    <form class="form-horizontal" id="buyingPurchaseForm">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="control-group">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="title">标题</label>
+                                    <div class="col-sm-6">
+                                        <input id="title" type="text" class="col-xs-10 col-sm-10" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="productId">房源编号</label>
+                                    <div class="col-sm-6">
+                                        <input id="productId" type="text" class="col-xs-10 col-sm-10" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="types">类别</label>
+                                    <div class="col-sm-9">
+                                        <select class="v_required col-xs-10 col-sm-6" id="types" disabled="disabled" data-toggle="popover" data-trigger='manual'>
+                                            <option value="0">初始</option>
+                                            <option value="1">厂房</option>
+                                            <option value="2">仓库</option>
+                                            <option value="3">土地</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="status">状态</label>
+                                    <div class="col-sm-9">
+                                        <select class="v_required col-xs-10 col-sm-6" id="status" disabled="disabled" data-toggle="popover" data-trigger='manual'>
+                                            <option value="0">初始</option>
+                                            <option value="1">求租</option>
+                                            <option value="2">求购</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="region">区域信息</label>
+                                    <div class="col-sm-6">
+                                        <input id="region" type="text" class="col-xs-10 col-sm-10" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="contact">联系人</label>
+                                    <div class="col-sm-6">
+                                        <input id="contact" type="text" class="col-xs-10 col-sm-10" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="contactPhone">联系人电话</label>
+                                    <div class="col-sm-6">
+                                        <input id="contactPhone" type="text" class="col-xs-10 col-sm-10" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="detailedDescription">详情描述</label>
+                                    <div class="col-sm-6">
+                                        <textarea id="detailedDescription" class="col-xs-10 col-sm-10"rows="3" data-toggle="popover"data-trigger="manual" maxlength="128"readonly="readonly"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="control-group">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="areaCap">面积上限</label>
+                                    <div class="col-sm-6">
+                                        <input id="areaCap" type="text" class="col-sm-4" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="areaLower">面积下限</label>
+                                    <div class="col-sm-6">
+                                        <input id="areaLower" type="text" class="col-sm-4" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="functionalUse">功能用途</label>
+                                    <div class="col-sm-6">
+                                        <input id="functionalUse" type="text" class="col-xs-10 col-sm-10" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="singleLayerArea">单层面积</label>
+                                    <div class="col-sm-6">
+                                        <input id="singleLayerArea" type="text" class="col-xs-10 col-sm-10" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="layerHeight">楼层高度</label>
+                                    <div class="col-sm-6">
+                                        <input id="layerHeight" type="text" class="col-xs-10 col-sm-10" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="loadBearing">承重</label>
+                                    <div class="col-sm-6">
+                                        <input id="loadBearing" type="text" class="col-xs-10 col-sm-10" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="minimumCharge">最小电量</label>
+                                    <div class="col-sm-6">
+                                        <input id="minimumCharge" type="text" class="col-xs-10 col-sm-10" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="createTime">发布时间</label>
+                                    <div class="col-sm-6">
+                                        <input id="createTime" type="text" class="col-xs-10 col-sm-10" readonly="readonly" data-toggle="popover" data-trigger='manual'/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="cancelBtn" class="btn btn-default"
+                            data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script type="text/javascript">
+    $.loadScript(['js/information/buyingPurchaseManagement.js']);
+</script>
+
+

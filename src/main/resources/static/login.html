@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+	<title>库房滴滴</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- Meta tag Keywords -->
+	<!-- css files -->
+	<link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all" />
+	<!-- Style-CSS -->
+	<link rel="stylesheet" href="assets/css/fontawesome-all.css">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
+	<!-- web-fonts -->
+<!--	<link href="http://maxcdn.bootstrapcdn.com/css?family=Josefin+Sans:100,100i,300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+	<link href="http://maxcdn.bootstrapcdn.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">-->
+	<!-- //web-fonts -->
+</head>
+
+<body>
+	<!-- bg effect -->
+	<div id="bg">
+		<canvas></canvas>
+		<canvas></canvas>
+		<canvas></canvas>
+	</div>
+	<!-- //bg effect -->
+	<!-- title -->
+	<h1>库房滴滴管理登陆页面</h1>
+	<!-- //title -->
+	<!-- content -->
+	<div class="sub-main-w3">
+		<form action="#" method="post">
+			<h2>用户登陆
+				<i class="fas fa-level-down-alt"></i>
+			</h2>
+			<div class="form-style-agile">
+				<label>
+					<i class="fas fa-user"></i>
+					用户名
+				</label>
+				<input placeholder="Username" id = 'username'name="Name" type="text" required="">
+			</div>
+			<div class="form-style-agile">
+				<label>
+					<i class="fas fa-unlock-alt"></i>
+					密码
+				</label>
+				<input placeholder="Password" name="Password"id ='password' type="password" required="">
+			</div>
+			<!-- checkbox -->
+			<!--<div class="wthree-text">
+				<ul>
+					<li>
+						<label class="anim">
+							<input type="checkbox" class="checkbox" required="">
+							<span>Stay Signed In</span>
+						</label>
+					</li>
+					<li>
+						<a href="#">Forgot Password?</a>
+					</li>
+				</ul>
+			</div>-->
+			<!-- //checkbox -->
+			<input type="button" id="submit" value="登陆">
+		</form>
+	</div>
+	<!-- //copyright -->
+
+	<!-- Jquery -->
+	<script src="assets/js/jquery/jquery-3.3.1.min.js"></script>
+	<!-- //Jquery -->
+
+	<!-- effect js -->
+	<script src="assets/js/canva_moving_effect.js"></script>
+	<!-- //effect js -->
+	<script src="js/params.js"></script>
+
+</body>
+	<script type="text/javascript">
+		$("#submit").click(function(){
+            $.ajax({
+                url:api.serverHost+api.adminLoginByPassWord,
+                data: {
+					"accountNumber" : $('#username').val(),
+					"userPassword" : $('#password').val(),
+                },
+                type:"post",
+                dataType: "json",
+                async: true, //设为false就是同步请求
+                success: function(res) {
+                    if (res.data != null) {
+						var date=new Date();
+						var expiresDays=10;
+						date.setTime(date.getTime()+expiresDays*24*3600*1000);
+						document.cookie="token="+res.data.token+";expires="+date.toGMTString();
+						window.location.replace("index.html");
+                    }else{
+						alert(res.msg);
+					}
+                }, error: function(msg) {
+                    alert("系统错误");
+                }
+            });
+		})
+	</script>
+</html>

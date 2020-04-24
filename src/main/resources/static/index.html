@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>库房滴滴</title>
+	<!--<meta name="description" content="overview &amp; stats" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+	<meta name="Description" content="库房滴滴"/>
+
+	<script src="system/core/params.js"></script>
+	<script>
+		var cookies = document.cookie;
+		if(cookies.indexOf("token") != -1){
+			token = cookies.split("token=")[1];
+			params["token"] = token
+		}else{
+			window.location.replace("login.html");
+		}
+	</script>
+
+
+	<link rel="stylesheet" href="assets/css/colorbox.css" />
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css"  />
+	<link rel="stylesheet" href="assets/css/dropzone.css" />
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.custom.min.css" />
+	<link rel="stylesheet" href="assets/css/chosen.css" />
+	<link rel="stylesheet" href="assets/css/jquery.gritter.css" />
+	<link rel="stylesheet" href="assets/css/datepicker.css" />
+	<link rel="stylesheet" href="assets/css/ace.min.css" />
+	<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+	<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+	<link rel="stylesheet" href="assets/css/bootstrap-timepicker.css" />
+	<link rel="stylesheet" href="assets/css/fullcalendar.css" />
+	<link rel="stylesheet" href="assets/css/daterangepicker.css" />
+	<link rel="stylesheet" href="utils/textEditor/summernote.css" >
+
+	<link rel="stylesheet" href="assets/css/googleapis.css" />
+	<link rel="stylesheet" href="assets/css/select2.css" />
+	<link rel="stylesheet" href="assets/css/colorpicker.css" />
+	<link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.full.min.css" />
+	<link rel="stylesheet" href="assets/css/ui.jqgrid.css" />
+	<link rel="stylesheet" href="assets/css/bootstrap-editable.css" />
+	<link rel="stylesheet" href="css/customize.css" />
+	<link rel="stylesheet" href="css/main.css" />
+
+	<style>
+		ul{margin:0;padding:0;list-style:none;}
+		.table{display:table;border-collapse:collapse;border:1px solid #ccc;}
+		.table-caption{display:table-caption;margin:0;padding:0;font-size:16px;}
+		.table-column-group{display:table-column-group;}
+		.table-column{display:table-column;width:100px;}
+		.table-row-group{display:table-row-group;}
+		.table-row{display:table-row;}
+		.table-row:nth-child(even){background-color:#ececec;}
+		.table-row-group .table-row:hover,.table-footer-group .table-row:hover{background:	#B9D3EE;}
+		.table-cell{display:table-cell;padding:5px 5px 5px 5px;border:1px solid #ccc;}
+		.table-header-group{display:table-header-group;background-color:rgb(222, 222, 222);font-weight:bold;height:auto;}
+		.table-footer-group{display:table-footer-group;}
+		/* #f9ffa2 */
+
+		.input_style{
+			width:150px;padding:.375rem .75rem;font-size:1rem;line-height:1.5;color:#495057;
+			background-color:#fff;background-clip:padding-box;border:1px solid #ced4da;
+			border-radius:.25rem;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+		}
+		.pianchang1 ul{
+			list-style-type:none; margin:0;width:100%;height:auto;
+		}
+		.pianchang1 ul li{
+			float:left;margin-left: 20px;
+		}
+		.pianchang1 ul li div{
+			width:72px;height:102px;
+		}
+		.pianchang1 ul li div div{
+			width:70px;height:70px;text-align: center;line-height: 30px;
+		}
+		.pianchang1 ul li div div h5{
+			padding-top:10px;
+			line-height: 30px;
+			color: white;
+		}
+		.pianchang1 ul li div button{
+			font-size:12px;color:white;width:70px;height:30px;background-color: darkgrey;border-color:darkgrey;
+		}
+
+		.main_left_text{
+			width:150px;height:110px;
+			text-align: center;
+			padding-top:30px;
+			float:left;
+		}
+		.main_yellow{
+			background-color: yellow;
+		}
+		.main_red{
+			background-color: red;
+		}
+		.main_green{
+			background-color: green;
+		}
+		.main_gray{
+			background-color: gray;
+		}
+		.main_blue{
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+
+<div class="navbar navbar-default" id="navbar">
+
+	<div class="navbar-container" id="navbar-container">
+		<div class="navbar-header pull-left">
+			<a href="#" class="navbar-brand">
+				<small>
+					<i class="icon-leaf"></i>
+					库房滴滴
+				</small>
+			</a>
+		</div>
+
+		<div class="navbar-header pull-right" role="navigation">
+			<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
+		</div>
+	</div>
+</div>
+
+
+<div class="main-container" id="main-container">
+	<script type="text/javascript">
+		try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+	</script>
+	<div class="main-container-inner">
+
+		<a class="menu-toggler" id="menu-toggler" href="#">
+			<span class="menu-text"></span>
+		</a>
+		<!--侧边-->
+		<div class="sidebar" id="sidebar">
+			<script type="text/javascript">
+				try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+			</script>
+
+			<ul class="nav nav-list">
+				<li class="active">
+					<a href="index.html">
+						<i class="icon-dashboard"></i>
+						<span class="menu-text">首页 </span>
+					</a>
+				</li>
+			</ul><!-- /.nav-list -->
+
+			<div class="sidebar-collapse" id="sidebar-collapse">
+				<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+			</div>
+			<script type="text/javascript">
+				try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+			</script>
+		</div>
+		<div class="main-content" >
+			<div class="breadcrumbs"  id="breadcrumbs">
+				<script type="text/javascript">
+					try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+				</script>
+				<ul class="breadcrumb" id="breadcrumb">
+					<li>
+						<i class="icon-home home-icon"></i>
+						<a href="#">首页</a>
+					</li>
+				</ul><!-- .breadcrumb -->
+			</div>
+
+			<div id="displayLoad-content" class="displayLoad-content" style="height: 700px;width: 100%"></div>
+		</div>
+	</div>
+
+</div><!-- /.main-container -->
+<script src="js/params.js"></script>
+<script src="assets/js/jquery/jquery-2.0.3.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/ace.min.js"></script>
+<script src="assets/js/ace-elements.min.js"></script>
+<script src="assets/js/ace-extra.min.js"></script>
+<script src="assets/js/typeahead-bs2.min.js"></script>
+<script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="assets/js/jquery.slimscroll.min.js"></script>
+<script src="assets/js/jquery.easy-pie-chart.min.js"></script>
+<script src="assets/js/jquery.sparkline.min.js"></script>
+<script src="assets/js/flot/jquery.flot.min.js"></script>
+<script src="assets/js/flot/jquery.flot.pie.min.js"></script>
+<script src="assets/js/flot/jquery.flot.resize.min.js"></script>
+<script src="assets/js/fullcalendar.min.js"></script>
+<script src="assets/js/jquery.gritter.min.js"></script>
+<script src="assets/js/bootbox.min.js"></script>
+<script src="assets/js/dropzone.min.js"></script>
+<script src="assets/js/chosen.jquery.min.js"></script>
+<script src="assets/js/fuelux/fuelux.spinner.min.js"></script>
+<script src="assets/js/date-time/bootstrap-datepicker.min.js"></script>
+<script src="assets/js/date-time/bootstrap-timepicker.min.js"></script>
+<script src="assets/js/date-time/moment.min.js"></script>
+<script src="assets/js/date-time/daterangepicker.min.js"></script>
+<script src="assets/js/bootstrap-colorpicker.min.js"></script>
+<script src="assets/js/jquery.knob.min.js"></script>
+<script src="assets/js/jquery.autosize.min.js"></script>
+<script src="assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
+<script src="assets/js/jquery.maskedinput.min.js"></script>
+<script src="assets/js/bootstrap-tag.min.js"></script>
+<script src="assets/js/fuelux/fuelux.wizard.min.js"></script>
+<script src="assets/js/jquery.validate.min.js"></script>
+<script src="assets/js/additional-methods.min.js"></script>
+<script src="assets/js/select2.min.js"></script>
+<script src="assets/js/jquery.colorbox-min.js"></script>
+<script src="assets/js/jquery.hotkeys.min.js"></script>
+<script src="assets/js/bootstrap-wysiwyg.min.js"></script>
+<script src="assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+<script src="assets/js/jqGrid/i18n/grid.locale-en.js"></script>
+<script src="assets/js/jquery-ui-1.10.3.full.min.js"></script>
+<script src="assets/js/jquery.nestable.min.js"></script>
+<script src="assets/js/x-editable/bootstrap-editable.min.js"></script>
+<script src="assets/js/x-editable/ace-editable.min.js"></script>
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/jquery.dataTables.bootstrap.js"></script>
+<script src="assets/js/fuelux/data/fuelux.tree-sampledata.js"></script>
+<script src="assets/js/fuelux/fuelux.tree.min.js"></script>
+<script src="assets/js/markdown/markdown.min.js"></script>
+<script src="assets/js/markdown/bootstrap-markdown.min.js"></script>
+<script src="utils/textEditor/summernote.js"></script>
+<script src="assets/js/tag.js"></script>
+<script src="system/core/load.js"></script>
+<script src="system/core/config.js"></script>
+<script src="system/core/utils.js"></script>
+<script src="system/core/core.js"></script>
+<script src="system/core/searcher.js"></script>
+<script src="system/core/condition.js"></script>
+<script src="js/index.js"></script>
+
+<!--vue-->
+<script src="js/vue.js"></script>
+<script src="assets/layer/layer.js"></script>
+</body>
+</html>
